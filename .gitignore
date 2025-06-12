@@ -1,0 +1,40 @@
+# === BACKEND (Flask) ===
+backend/venv/
+backend/env/
+backend/.venv/
+backend/.env
+backend/*.env
+backend/__pycache__/
+backend/*.py[cod]
+backend/credentials.json
+backend/*.log
+backend/*.bak
+backend/.vscode/
+backend/.idea/
+backend/.DS_Store
+backend/Thumbs.db
+backend/ipynb_checkpoints/
+backend/*.egg-info/
+backend/build/
+backend/dist/
+backend/app/_pycache_/
+
+# === FRONTEND (React) ===
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.DS_Store
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.parcel-cache/
+frontend/.cache/
+frontend/.vscode/
+frontend/.idea/
+frontend/coverage/
+frontend/.eslintcache
+
+# === General archivos de sistema/editor ===
+*.swp
+*~
+get_emails.py
