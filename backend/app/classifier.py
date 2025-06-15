@@ -46,5 +46,6 @@ label_map = {
 
 # --- Función de clasificación de texto usando zero-shot ---
 def clasificar_correo(texto):
-    resultado = classifier(texto, labels_en)  # Clasifica el texto según las etiquetas definidas
-    return resultado['labels'][0]  # Retorna la etiqueta más probable
+    resultado = classifier(texto, labels_en)
+    top_label = resultado["labels"][0]
+    return label_map[top_label] # Retorna la etiqueta más probable
