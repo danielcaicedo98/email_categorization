@@ -20,11 +20,31 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 classifier = pipeline("zero-shot-classification", model=model, tokenizer=tokenizer)
 
 # Etiquetas en español que se usarán para clasificar los correos
-labels = ["Profesional", "Personal", "Finanzas", "Citas", "Spam", "Facturas", "General", "Académico"]
+labels_en = [
+    "Este correo está relacionado con el trabajo, negocios o comunicación profesional",
+    "Este correo es un mensaje personal de un amigo o familiar",
+    "Este correo trata sobre una cita, evento o reunión programada",
+    "Este correo contiene una transacción, factura, recibo, comprobante de pago o confirmación",
+    "Este correo está relacionado con cuentas bancarias, servicios financieros o inversiones",
+    "Este correo es spam, una estafa o un anuncio no deseado",
+    "Este correo es un mensaje general que no entra en categorías específicas",
+    "Este correo está relacionado con la escuela, universidad o temas académicos"
+]
 
+
+label_map = {
+    "Este correo está relacionado con el trabajo, negocios o comunicación profesional": "Profesional",
+    "Este correo es un mensaje personal de un amigo o familiar": "Personal",
+    "Este correo trata sobre una cita, evento o reunión programada": "Citas",
+    "Este correo contiene una transacción, factura, recibo, comprobante de pago o confirmación": "Factura",
+    "Este correo está relacionado con cuentas bancarias, servicios financieros o inversiones": "Finanzas",
+    "Este correo es spam, una estafa o un anuncio no deseado": "Spam",
+    "Este correo es un mensaje general que no entra en categorías específicas": "General",
+    "Este correo está relacionado con la escuela, universidad o temas académicos": "Académico"
+}
 # --- Funciones auxiliares para limpieza de texto ---
 
 # --- Función de clasificación de texto usando zero-shot ---
 def clasificar_correo(texto):
-    resultado = classifier(texto, labels)  # Clasifica el texto según las etiquetas definidas
+    resultado = classifier(texto, labels_en)  # Clasifica el texto según las etiquetas definidas
     return resultado['labels'][0]  # Retorna la etiqueta más probable
