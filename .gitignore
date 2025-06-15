@@ -38,3 +38,6 @@ frontend/.eslintcache
 *.swp
 *~
 get_emails.py
+venv/
+venv
+.env
