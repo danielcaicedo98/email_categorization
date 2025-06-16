@@ -7,7 +7,7 @@ main = Blueprint("main", __name__)
 
 @main.route("/correos")
 def obtener_correos():
-    emails = get_emails_imap(EMAIL_USER, EMAIL_PASSWORD, max_emails=20)
+    emails = get_emails_imap(EMAIL_USER, EMAIL_PASSWORD, max_emails=100)
     resultado = []
     for subject, body in emails:
         texto = f"{subject}\n{body[:500]}"
